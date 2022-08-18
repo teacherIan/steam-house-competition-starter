@@ -18,6 +18,8 @@ scene.add(demoBox);
 const loop = () => {
   //Any code that will need to be updated on each frame should go here
 
+  demoBox.rotateX(0.002);
+
   //update scene on next frame
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
