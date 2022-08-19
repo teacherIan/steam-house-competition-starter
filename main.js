@@ -26,7 +26,9 @@ createCube();
 createSphere();
 
 for (let i = 0; i < objectArray.length; i++) {
+  //how far apart the objects will be
   const margin = 3;
+  //move the objects so they will be in the center of the screen
   const mid = (objectArray.length - 1) * 0.5 * margin;
   objectArray[i].position.x = i * margin - mid;
   console.log(objectArray[i].position);
