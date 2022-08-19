@@ -1,21 +1,40 @@
 //imports
 import * as THREE from 'three';
 //scene initialization
-import { camera, scene, renderer } from './init';
+import {
+  camera,
+  scene,
+  renderer,
+  createSphere,
+  createCube,
+  objectArray,
+} from './init';
 
 //You can change the camera position on the X, Y, or Z axis
 camera.position.set(0, 0, 10);
 
-const demoBox = new THREE.Mesh(
-  new THREE.BoxBufferGeometry(1, 1, 1),
-  new THREE.MeshNormalMaterial()
-);
+const clock = new THREE.Clock();
 
-scene.add(demoBox);
+//Any code to initialize your objects should go here.
+//Any object created using createSphere() or createCube()
+//Will be added to an array named 'objectArray'
 
-//Any code to initialize your objects should go here
+createSphere();
+createCube();
+createSphere();
+createCube();
+createSphere();
+
+for (let i = 0; i < objectArray.length; i++) {
+  const margin = 3;
+  const mid = (objectArray.length - 1) * 0.5 * margin;
+  objectArray[i].position.x = i * margin - mid;
+  console.log(objectArray[i].position);
+}
 
 const loop = () => {
+  //You can use the clock get elapsed time method to get the time since the start of the program
+  clock.getElapsedTime();
   //Any code that will need to be updated on each frame should go here
 
   //update scene on next frame
